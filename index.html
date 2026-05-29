@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"/>
+
+<title>Moon Hotel Premium</title>
+
+<!-- TAILWIND -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- CHART -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- RAZORPAY -->
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<!-- JSPDF -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+.hero{
+background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600');
+background-size:cover;
+background-position:center;
+}
+
+.glass{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+}
+
+</style>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- LOADER -->
+
+<div id="loader"
+class="fixed inset-0 bg-black flex items-center justify-center z-50">
+
+<h1 class="text-yellow-400 text-6xl font-bold animate-pulse">
+MOON HOTEL
+</h1>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav class="bg-black text-white sticky top-0 z-40 shadow-xl">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+<h1 class="text-3xl font-bold text-yellow-400">
+MOON HOTEL
+</h1>
+
+<div class="hidden md:flex gap-6">
+
+<a href="#home">Home</a>
+
+<a href="#rooms">Rooms</a>
+
+<a href="#booking">Booking</a>
+
+<a href="#offers">Offers</a>
+
+<a href="#dashboard">Dashboard</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<button onclick="toggleTheme()"
+class="bg-yellow-400 text-black px-4 py-2 rounded-xl font-bold">
+
+Theme
+
+</button>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section id="home"
+class="hero h-screen flex items-center justify-center">
+
+<div class="glass p-10 rounded-3xl text-center max-w-3xl mx-4">
+
+<h1 class="text-6xl text-white font-bold mb-6">
+Welcome To Moon Hotel
+</h1>
+
+<p class="text-xl text-gray-200 mb-8">
+Luxury Rooms • Premium Services • AI Booking
+</p>
+
+<a href="#booking"
+class="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-bold">
+
+Book Now
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="p-10 bg-white">
+
+<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+<img
+src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1200"
+class="rounded-3xl shadow-2xl">
+
+<div>
+
+<h2 class="text-5xl font-bold mb-6">
+About Moon Hotel
+</h2>
+
+<p class="text-lg leading-8 text-gray-700">
+
+Moon Hotel offers luxury rooms, spa,
+restaurant, swimming pool, gym,
+wedding booking and premium
+hospitality services.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ROOMS -->
+
+<section id="rooms"
+class="p-10 bg-gray-100">
+
+<h2 class="text-5xl font-bold text-center mb-12">
+Luxury Rooms
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+<!-- ROOM -->
+
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+
+<img
+src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200"
+class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl font-bold">
+Deluxe Room
+</h3>
+
+<p class="mt-3 text-gray-600">
+Luxury room with premium comfort.
+</p>
+
+<p class="mt-4 text-yellow-500 text-2xl font-bold">
+₹3000 / Night
+</p>
+
+</div>
+
+</div>
+
+<!-- ROOM -->
+
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+
+<img
+src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200"
+class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl font-bold">
+Luxury Suite
+</h3>
+
+<p class="mt-3 text-gray-600">
+Royal luxury suite with spa.
+</p>
+
+<p class="mt-4 text-yellow-500 text-2xl font-bold">
+₹7000 / Night
+</p>
+
+</div>
+
+</div>
+
+<!-- ROOM -->
+
+<div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+
+<img
+src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1200"
+class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl font-bold">
+Family Room
+</h3>
+
+<p class="mt-3 text-gray-600">
+Best room for family vacations.
+</p>
+
+<p class="mt-4 text-yellow-500 text-2xl font-bold">
+₹5000 / Night
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BOOKING -->
+
+<section id="booking"
+class="p-10 bg-black text-white">
+
+<h2 class="text-5xl text-center text-yellow-400 font-bold mb-12">
+
+Room Booking
+
+</h2>
+
+<form id="bookingForm"
+class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+
+<input type="text"
+id="name"
+placeholder="Full Name"
+class="p-4 rounded-xl bg-gray-800">
+
+<input type="email"
+id="email"
+placeholder="Email"
+class="p-4 rounded-xl bg-gray-800">
+
+<input type="tel"
+id="phone"
+placeholder="Phone"
+class="p-4 rounded-xl bg-gray-800">
+
+<select id="room"
+onchange="calculateBill()"
+class="p-4 rounded-xl bg-gray-800">
+
+<option value="">
+Select Room
+</option>
+
+<option value="3000">
+Deluxe Room
+</option>
+
+<option value="7000">
+Luxury Suite
+</option>
+
+<option value="5000">
+Family Room
+</option>
+
+</select>
+
+<input type="number"
+id="guests"
+placeholder="Guests"
+onchange="calculateBill()"
+class="p-4 rounded-xl bg-gray-800">
+
+<select id="payment"
+class="p-4 rounded-xl bg-gray-800">
+
+<option>UPI</option>
+<option>Credit Card</option>
+<option>Cash</option>
+
+</select>
+
+<input type="date"
+id="checkin"
+onchange="calculateBill()"
+class="p-4 rounded-xl bg-gray-800">
+
+<input type="date"
+id="checkout"
+onchange="calculateBill()"
+class="p-4 rounded-xl bg-gray-800">
+
+<textarea
+placeholder="Special Request"
+class="p-4 rounded-xl bg-gray-800"></textarea>
+
+<div id="bill"
+class="bg-yellow-400 text-black p-4 rounded-xl font-bold flex items-center justify-center">
+
+Total Bill: ₹0
+
+</div>
+
+<button type="button"
+onclick="bookRoom()"
+class="bg-yellow-400 text-black py-4 rounded-xl font-bold">
+
+Confirm Booking
+
+</button>
+
+<button type="button"
+onclick="payNow()"
+class="bg-green-500 py-4 rounded-xl font-bold">
+
+Pay Now
+
+</button>
+
+</form>
+
+</section>
+
+<!-- OFFERS -->
+
+<section id="offers"
+class="p-10 bg-white">
+
+<h2 class="text-5xl font-bold text-center mb-12">
+Special Offers
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="bg-yellow-100 p-8 rounded-3xl text-center">
+
+<h3 class="text-3xl font-bold">
+Summer Offer
+</h3>
+
+<p class="mt-4 text-lg">
+20% OFF on Luxury Rooms
+</p>
+
+</div>
+
+<div class="bg-pink-100 p-8 rounded-3xl text-center">
+
+<h3 class="text-3xl font-bold">
+Honeymoon Package
+</h3>
+
+<p class="mt-4 text-lg">
+Romantic Dinner Included
+</p>
+
+</div>
+
+<div class="bg-blue-100 p-8 rounded-3xl text-center">
+
+<h3 class="text-3xl font-bold">
+Weekend Deal
+</h3>
+
+<p class="mt-4 text-lg">
+Free Breakfast
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section id="dashboard"
+class="p-10 bg-gray-900 text-white">
+
+<h2 class="text-5xl text-yellow-400 text-center font-bold mb-12">
+
+Admin Dashboard
+
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-10">
+
+<div class="bg-black p-8 rounded-3xl text-center">
+
+<h3 class="text-2xl font-bold">
+Total Revenue
+</h3>
+
+<p id="revenue"
+class="text-5xl text-yellow-400 mt-4">
+
+₹0
+
+</p>
+
+</div>
+
+<div class="bg-black p-8 rounded-3xl text-center">
+
+<h3 class="text-2xl font-bold">
+Bookings
+</h3>
+
+<p id="bookings"
+class="text-5xl text-yellow-400 mt-4">
+
+0
+
+</p>
+
+</div>
+
+<div class="bg-black p-8 rounded-3xl text-center">
+
+<h3 class="text-2xl font-bold">
+Customers
+</h3>
+
+<p class="text-5xl text-yellow-400 mt-4">
+
+120
+
+</p>
+
+</div>
+
+</div>
+
+<div class="bg-black p-6 rounded-3xl max-w-5xl mx-auto">
+
+<canvas id="chart"></canvas>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery"
+class="p-10 bg-white">
+
+<h2 class="text-5xl font-bold text-center mb-12">
+Gallery
+</h2>
+
+<div class="grid md:grid-cols-4 gap-4">
+
+<img
+src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200"
+class="rounded-3xl h-60 w-full object-cover">
+
+<img
+src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=1200"
+class="rounded-3xl h-60 w-full object-cover">
+
+<img
+src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200"
+class="rounded-3xl h-60 w-full object-cover">
+
+<img
+src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200"
+class="rounded-3xl h-60 w-full object-cover">
+
+</div>
+
+</section>
+
+<!-- CHATBOT -->
+
+<section class="p-10 bg-black text-white">
+
+<h2 class="text-5xl text-yellow-400 text-center font-bold mb-10">
+
+AI Assistant
+
+</h2>
+
+<div class="max-w-3xl mx-auto bg-gray-900 p-6 rounded-3xl">
+
+<div id="chatBox"
+class="h-80 overflow-y-auto bg-black p-4 rounded-xl mb-4">
+
+<div class="mb-3">
+🤖 Welcome to Moon Hotel
+</div>
+
+</div>
+
+<div class="flex gap-4">
+
+<input type="text"
+id="chatInput"
+placeholder="Ask anything..."
+class="flex-1 p-4 rounded-xl text-black">
+
+<button onclick="sendMessage()"
+class="bg-yellow-400 text-black px-6 rounded-xl font-bold">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact"
+class="p-10 bg-white">
+
+<h2 class="text-5xl font-bold text-center mb-12">
+Contact Us
+</h2>
+
+<div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+<div>
+
+<p class="text-xl mb-4">
+📍 Punjab, India
+</p>
+
+<p class="text-xl mb-4">
+📞 +91 9876543210
+</p>
+
+<p class="text-xl">
+✉️ moonhotel@gmail.com
+</p>
+
+</div>
+
+<iframe
+class="w-full h-80 rounded-3xl"
+src="https://maps.google.com/maps?q=Punjab&t=&z=13&ie=UTF8&iwloc=&output=embed">
+
+</iframe>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-black text-white text-center py-8">
+
+<p>
+© 2026 Moon Hotel Premium
+</p>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/919876543210"
+target="_blank"
+class="fixed bottom-6 right-6 bg-green-500 p-5 rounded-full shadow-2xl text-white text-2xl">
+
+💬
+
+</a>
+
+<script>
+
+/* LOADER */
+
+window.onload = function(){
+
+setTimeout(()=>{
+
+document.getElementById("loader")
+.style.display="none";
+
+},2000);
+
+}
+
+/* THEME */
+
+function toggleTheme(){
+
+document.body.classList.toggle("bg-black");
+
+document.body.classList.toggle("text-white");
+
+}
+
+/* BILL */
+
+let revenue = 0;
+
+let totalBookings = 0;
+
+function calculateBill(){
+
+const room =
+parseInt(
+document.getElementById("room").value
+);
+
+const guests =
+parseInt(
+document.getElementById("guests").value
+);
+
+const checkin =
+new Date(
+document.getElementById("checkin").value
+);
+
+const checkout =
+new Date(
+document.getElementById("checkout").value
+);
+
+if(room && guests && checkin && checkout){
+
+const days =
+(checkout - checkin)
+/
+(1000*60*60*24);
+
+const total =
+room * guests * days;
+
+document.getElementById("bill")
+.innerHTML =
+"Total Bill: ₹" + total;
+
+return total;
+
+}
+
+}
+
+/* BOOKING */
+
+function bookRoom(){
+
+const total =
+calculateBill();
+
+if(!total){
+
+alert("Please Fill Booking Form");
+
+return;
+
+}
+
+revenue += total;
+
+totalBookings++;
+
+document.getElementById("revenue")
+.innerHTML =
+"₹" + revenue;
+
+document.getElementById("bookings")
+.innerHTML =
+totalBookings;
+
+alert("Booking Confirmed");
+
+generateInvoice(total);
+
+}
+
+/* PDF */
+
+function generateInvoice(total){
+
+const { jsPDF } = window.jspdf;
+
+const doc = new jsPDF();
+
+doc.text(
+"Moon Hotel Invoice",
+20,
+20
+);
+
+doc.text(
+"Bill: ₹" + total,
+20,
+40
+);
+
+doc.save("invoice.pdf");
+
+}
+
+/* PAYMENT */
+
+function payNow(){
+
+const total =
+calculateBill();
+
+if(!total){
+
+alert("Please Calculate Bill");
+
+return;
+
+}
+
+const options = {
+
+key:"rzp_test_xxxxx",
+
+amount:total * 100,
+
+currency:"INR",
+
+name:"Moon Hotel",
+
+description:"Room Booking",
+
+handler:function(){
+
+alert(
+"Payment Successful"
+);
+
+}
+
+};
+
+const rzp =
+new Razorpay(options);
+
+rzp.open();
+
+}
+
+/* CHART */
+
+const ctx =
+document.getElementById("chart");
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:[
+"Jan",
+"Feb",
+"Mar",
+"Apr",
+"May"
+],
+
+datasets:[{
+
+label:"Revenue",
+
+data:[
+12000,
+19000,
+30000,
+25000,
+40000
+],
+
+backgroundColor:[
+"gold",
+"orange",
+"yellow",
+"pink",
+"lightblue"
+]
+
+}]
+
+}
+
+});
+
+/* CHATBOT */
+
+function sendMessage(){
+
+const input =
+document.getElementById("chatInput");
+
+const box =
+document.getElementById("chatBox");
+
+const msg =
+input.value;
+
+if(!msg) return;
+
+box.innerHTML +=
+`<div class='mb-2'>🧑 ${msg}</div>`;
+
+let reply =
+"Please contact support.";
+
+if(msg.toLowerCase().includes("price")){
+
+reply =
+"Rooms start from ₹3000";
+
+}
+
+if(msg.toLowerCase().includes("wifi")){
+
+reply =
+"Free WiFi Available";
+
+}
+
+if(msg.toLowerCase().includes("pool")){
+
+reply =
+"Swimming pool available";
+
+}
+
+if(msg.toLowerCase().includes("booking")){
+
+reply =
+"Booking available 24/7";
+
+}
+
+box.innerHTML +=
+`<div class='mb-4'>🤖 ${reply}</div>`;
+
+input.value = "";
+
+box.scrollTop =
+box.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
